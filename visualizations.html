@@ -3,18 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Visualizations</title>
+    <title>SVG Visualizations</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Visualizations</h1>
+        <h1>SVG Visualizations</h1>
     </header>
 
-    <main>
-        <!-- Add your SVG visualizations here -->
-        <svg id="vis" width="800px" height="500px"></svg>
-    </main>
+    <section>
+        <h2>Class Visualization - Bar Chart</h2>
+        <svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+            <!-- Draw the bars -->
+            <rect x="50" y="150" width="40" height="100" fill="blue" />
+            <text x="70" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">A</text>
+
+            <rect x="120" y="170" width="40" height="80" fill="green" />
+            <text x="140" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">B</text>
+
+            <rect x="190" y="130" width="40" height="120" fill="red" />
+            <text x="210" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">C</text>
+
+            <rect x="260" y="190" width="40" height="60" fill="orange" />
+            <text x="280" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">D</text>
+
+            <!-- Add labels for each category -->
+            <text x="70" y="300" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">A</text>
+            <text x="140" y="300" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">B</text>
+            <text x="210" y="300" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">C</text>
+            <text x="280" y="300" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">D</text>
+        </svg>
+    </section>
+
+    <section>
+        <h2>Creative Art</h2>
+        <svg width="800" height="500" id="creativeArt">
+            <!-- Creative SVG art will be generated in vis.js -->
+        </svg>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Jigang Zhou</p>
+    </footer>
 
     <script src="vis.js"></script>
 </body>
