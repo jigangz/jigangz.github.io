@@ -50,6 +50,7 @@ a {
     color: #4CAF50;
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: underline;
 }
@@ -63,15 +64,15 @@ a:hover {
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    transition: background-color 0.3s ease;
 }
 
 .button-link:hover {
     background-color: #45a049;
     text-decoration: none;
-    transform: scale(1.05); /* Slightly enlarges the button on hover */
 }
 
+/* Button click color change */
 .button-link:active {
-    background-color: lightblue; /* Changes background when clicked */
+    background-color: lightblue; /* Change background color when clicked */
 }

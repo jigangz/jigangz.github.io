@@ -26,5 +26,4 @@ This website was created for **Assignment 2** to showcase my personal informatio
 
 ## Additional Features  
 - **Interactive Header**: Clicking the header displays a welcome message.
-- **Button Feedback**: The "Go to Visualizations" button provides a loading effect when clicked.
-
+- **Button Click Effect**: When clicking the "Go to Visualizations" button, its background color changes to provide a visual indication of the interaction.
