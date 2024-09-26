@@ -15,30 +15,25 @@
         <h2>Class Visualization - Bar Chart</h2>
         <svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
             <!-- Draw the bars -->
-            <rect x="50" y="150" width="40" height="100" fill="blue" />
-            <text x="70" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">A</text>
+            <rect x="50" y="100" width="40" height="150" fill="blue" />
+            <text x="70" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">A&W</text>
 
-            <rect x="120" y="170" width="40" height="80" fill="green" />
-            <text x="140" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">B</text>
+            <rect x="120" y="180" width="40" height="70" fill="green" />
+            <text x="140" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">McDonald's</text>
 
-            <rect x="190" y="130" width="40" height="120" fill="red" />
-            <text x="210" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">C</text>
+            <rect x="190" y="160" width="40" height="90" fill="red" />
+            <text x="210" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">KFC</text>
 
             <rect x="260" y="190" width="40" height="60" fill="orange" />
-            <text x="280" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">D</text>
-
-            <!-- Add labels for each category -->
-            <text x="70" y="300" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">A</text>
-            <text x="140" y="300" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">B</text>
-            <text x="210" y="300" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">C</text>
-            <text x="280" y="300" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">D</text>
+            <text x="280" y="270" font-family="Verdana" font-size="14" fill="black" text-anchor="middle">Burger King</text>
         </svg>
     </section>
 
     <section>
-        <h2>Creative Art</h2>
-        <svg width="800" height="500" id="creativeArt">
-            <!-- Creative SVG art will be generated in vis.js -->
+        <h2>Creative SVG Art</h2>
+        <!-- SVG container  -->
+        <svg width="800" height="500" id="creativeArt" xmlns="http://www.w3.org/2000/svg">
+            <!-- All shapes will be dynamically created in JavaScript -->
         </svg>
     </section>
 
@@ -46,6 +41,10 @@
         <p>&copy; 2024 Jigang Zhou</p>
     </footer>
 
+   
     <script src="vis.js"></script>
+    <script>
+        drawSVGShapes(); // Call the function to draw shapes in the creativeArt SVG
+    </script>
 </body>
 </html>

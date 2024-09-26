@@ -1,21 +1,25 @@
-# jigangz.github.io
-# Personal Website
+# jigangz.github.io  
+## Personal Website  
 
-This is my personal website created for Assignment 2. It showcases my personal information, education, skills, experience, and a portfolio of visualizations.
+This website was created for **Assignment 2** to showcase my personal information, skills, and creative visualizations.
 
-## Technologies Used
-- HTML
-- CSS
-- JavaScript (for basic interactivity)
-- SVG (for visualizations)
+## Technologies Used  
+- HTML  
+- CSS  
+- JavaScript  
+- SVG  
 
-## Website Structure
-- `index.html`: The home page.
-- `visualizations.html`: The visualization portfolio page.
-- `style.css`: CSS file for styling.
-- `main.js`: JavaScript file for interactivity.
-- `vis.js`: JavaScript file for generating SVG visualizations.
+## Website Structure  
+- **`index.html`**: The homepage with personal information like education, skills, and experience.
+- **`visualizations.html`**: A page showcasing data visualizations using SVG and JavaScript.
+- **`style.css`**: Styling for layout and design.
+- **`main.js`**: Adds basic interactivity.
+- **`vis.js`**: Generates SVG visualizations.
 
-## How to Navigate
-- Visit the home page at `index.html` for personal information.
-- Visit `visualizations.html` for the visualizations.
+## Navigation  
+- **Homepage**: View personal info in `index.html`.
+- **Visualizations**: See the bar chart and creative art in `visualizations.html`.
+
+## Visualizations  
+- **Bar Chart**: Displays how often I eat at different fast food restaurants (A&W, McDonald's, KFC, Burger King).
+- **Creative Art**: Randomly generated SVG art using JavaScript.
