@@ -12,6 +12,11 @@ header {
     color: white;
     text-align: center;
     padding: 1.5rem;
+    cursor: pointer; /* Cursor changes to indicate clickable header */
+}
+
+header:hover {
+    background-color: #45a049;
 }
 
 /* Section styling */
@@ -21,6 +26,7 @@ section {
     max-width: 800px;
     background-color: white;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow for modern look */
 }
 
 /* List styling */
@@ -34,6 +40,9 @@ footer {
     padding: 1rem;
     background-color: #333;
     color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Anchor link styling */
@@ -54,9 +63,15 @@ a:hover {
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .button-link:hover {
     background-color: #45a049;
     text-decoration: none;
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+.button-link:active {
+    background-color: lightblue; /* Changes background when clicked */
 }
