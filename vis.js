@@ -46,6 +46,8 @@ async function renderChart3() {
     +d.NA_Sales > 0 || +d.EU_Sales > 0 || +d.JP_Sales > 0 || +d.Other_Sales > 0
   );
 
+  console.log(filteredData);  // Log the filtered data to inspect
+
   const vlSpec = vl
     .markBar()
     .data(filteredData)  // Use the filtered data
@@ -62,6 +64,9 @@ async function renderChart3() {
 
   await vegaEmbed("#chart3", vlSpec);
 }
+
+
+
 
 
 // Visualization 4: Japan Sales Trends by Platform and Genre
