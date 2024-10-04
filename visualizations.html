@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vega-Lite Visualizations</title>
@@ -8,40 +8,41 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5"></script>
+  </head>
+  <body>
     <header>
-        <h1>Interactive Data Visualizations</h1>
+      <h1>Interactive Data Visualizations</h1>
     </header>
 
     <!-- Visualization 1: Global Sales by Genre and Platform -->
     <section>
-        <h2>Visualization 1: Global Sales by Genre and Platform</h2>
-        <div id="chart1"></div>
+      <h2>Visualization 1: Global Sales by Genre and Platform</h2>
+      <div id="chart1"></div>
     </section>
 
     <!-- Visualization 2: Sales Over Time by Platform and Genre -->
     <section>
-        <h2>Visualization 2: Sales Over Time by Platform and Genre</h2>
-        <div id="chart2"></div>
+      <h2>Visualization 2: Sales Over Time by Platform and Genre (Line Chart)</h2>
+      <div id="chart2"></div>
     </section>
 
     <!-- Visualization 3: Regional Sales vs. Platform -->
     <section>
-        <h2>Visualization 3: Regional Sales vs. Platform</h2>
-        <div id="chart3"></div>
+      <h2>Visualization 3: Regional Sales vs. Platform</h2>
+      <div id="chart3"></div>
     </section>
 
     <!-- Visualization 4: Japan Sales Trends by Platform and Genre -->
     <section>
-        <h2>Visualization 4: Japan Sales Trends by Platform and Genre</h2>
-        <div id="chart4"></div>
+      <h2>Visualization 4: Japan Sales Trends by Platform and Genre</h2>
+      <div id="chart4"></div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Jigang Zhou</p>
+      <p>&copy; 2024 Jigang Zhou</p>
     </footer>
 
-    <script src="vis.js"></script>
-</body>
+    <script type="module" src="vis.js"></script>
+  </body>
 </html>
