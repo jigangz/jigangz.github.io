@@ -41,20 +41,22 @@ async function renderChart2() {
 async function renderChart3() {
   const data = await d3.csv("./data/videogames_wide.csv");
 
-  
-  console.log(data);
+  // Filter out records where all sales values are zero or empty
+  const filteredData = data.filter(d => 
+    +d.NA_Sales > 0 || +d.EU_Sales > 0 || +d.JP_Sales > 0 || +d.Other_Sales > 0
+  );
 
   const vlSpec = vl
     .markBar()
-    .data(data)
+    .data(filteredData)  // Use the filtered data
     .transform(vl.fold(["NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"], "Region", "Sales"))
     .encode(
       vl.x().fieldN("Platform"),
-      vl.y().fieldQ("Sales").aggregate('sum'),  
-      vl.color().fieldN("Region"),
+      vl.y().fieldQ("Sales").aggregate('sum'),
+      vl.color().fieldN("Region").legend({ symbolLimit: 10 }),  // Limit the number of legend symbols
       vl.column().fieldN("Region")
     )
-    .width(200)  
+    .width(200)
     .height(400)
     .toSpec();
 
