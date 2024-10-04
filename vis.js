@@ -51,7 +51,7 @@ async function renderChart3() {
       vl.color().fieldN("Region"),
       vl.column().fieldN("Region")
     )
-    .width("container")
+    .width(200)  // 
     .height(400)
     .toSpec();
 
@@ -65,19 +65,20 @@ async function renderChart4() {
   const vlSpec = vl
     .markLine()
     .data(data)
-    .transform(vl.filter("datum.sales_region == 'JP_Sales'"))
+    .transform(vl.filter("datum.sales_region == 'jp_sales'"))  
     .encode(
       vl.x().fieldT("year"),
       vl.y().fieldQ("sales_amount"),
       vl.color().fieldN("platform"),
       vl.strokeDash().fieldN("genre")
     )
-    .width("container")
+    .width(400)
     .height(400)
     .toSpec();
 
   await vegaEmbed("#chart4", vlSpec);
 }
+
 
 // Call the render functions
 renderChart1();
