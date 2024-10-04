@@ -2,7 +2,7 @@
 var spec1 = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-      "url": "path_to_your_data/videogames_wide.csv",  // Replace with actual path
+      "url": "data/videogames_wide.csv" ,  
       "format": {
         "type": "csv"
       }
@@ -30,7 +30,7 @@ var spec1 = {
   var spec2 = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-      "url": "path_to_your_data/videogames_long.csv",  // Replace with actual path
+      "url": "data/videogames_long.csv" ,  
       "format": {
         "type": "csv"
       }
@@ -63,7 +63,7 @@ var spec1 = {
   var spec3 = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-      "url": "path_to_your_data/videogames_wide.csv",  // Replace with actual path
+      "url": "data/videogames_wide.csv",  
       "format": {
         "type": "csv"
       }
@@ -106,7 +106,7 @@ var spec1 = {
   var spec4 = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-      "url": "path_to_your_data/videogames_long.csv",  // Replace with actual path
+      "url": "data/videogames_long.csv",  
       "format": {
         "type": "csv"
       }
