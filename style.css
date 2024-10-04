@@ -28,6 +28,12 @@ section {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow for modern look */
 }
+/* Chart container styling */
+#chart1, #chart2, #chart3, #chart4 {
+    width: 90%;
+    height: 400px;
+    margin: 20px auto;
+}
 
 /* List styling */
 ul {

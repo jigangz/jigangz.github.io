@@ -1,53 +1,143 @@
-// Function to create a circle
-function createCircle(svg, cx, cy, r, fill) {
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', cx);
-    circle.setAttribute('cy', cy);
-    circle.setAttribute('r', r);
-    circle.setAttribute('fill', fill);
-    svg.appendChild(circle); // Append circle to SVG container
-}
-
-// Function to create a rectangle
-function createRectangle(svg, x, y, width, height, fill) {
-    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    rect.setAttribute('x', x);
-    rect.setAttribute('y', y);
-    rect.setAttribute('width', width);
-    rect.setAttribute('height', height);
-    rect.setAttribute('fill', fill);
-    svg.appendChild(rect); // Append rectangle to SVG container
-}
-
-// Function to create a line
-function createLine(svg, x1, y1, x2, y2, stroke, strokeWidth) {
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1);
-    line.setAttribute('y1', y1);
-    line.setAttribute('x2', x2);
-    line.setAttribute('y2', y2);
-    line.setAttribute('stroke', stroke);
-    line.setAttribute('stroke-width', strokeWidth);
-    svg.appendChild(line); // Append line to SVG container
-}
-
-// Function to create a polygon
-function createPolygon(svg, points, fill, stroke, strokeWidth) {
-    const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-    polygon.setAttribute('points', points);
-    polygon.setAttribute('fill', fill);
-    polygon.setAttribute('stroke', stroke);
-    polygon.setAttribute('stroke-width', strokeWidth);
-    svg.appendChild(polygon); // Append polygon to SVG container
-}
-
-// Function to initialize the SVG drawings
-function drawSVGShapes() {
-    const svg = document.getElementById('creativeArt'); // Get the SVG container from HTML
-
-    // Call functions to create various SVG shapes
-    createCircle(svg, 200, 200, 100, 'purple');
-    createRectangle(svg, 300, 150, 200, 100, 'yellow');
-    createLine(svg, 100, 100, 400, 400, 'red', 5);
-    createPolygon(svg, '400,10 450,190 470,60 590,90', 'lime', 'black', 2);
-}
+// Visualization 1: Global Sales by Genre and Platform
+var spec1 = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "path_to_your_data/videogames_wide.csv",  // Replace with actual path
+      "format": {
+        "type": "csv"
+      }
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Genre",
+        "type": "nominal",
+        "axis": {"labelAngle": 0}
+      },
+      "y": {
+        "field": "Global_Sales",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "Platform",
+        "type": "nominal"
+      }
+    }
+  };
+  vegaEmbed('#chart1', spec1);
+  
+  // Visualization 2: Sales Over Time by Platform and Genre
+  var spec2 = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "path_to_your_data/videogames_long.csv",  // Replace with actual path
+      "format": {
+        "type": "csv"
+      }
+    },
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "temporal",
+        "axis": {"title": "Year"}
+      },
+      "y": {
+        "field": "Global_Sales",
+        "type": "quantitative",
+        "axis": {"title": "Global Sales (in millions)"}
+      },
+      "color": {
+        "field": "Platform",
+        "type": "nominal"
+      },
+      "strokeDash": {
+        "field": "Genre",
+        "type": "nominal"
+      }
+    }
+  };
+  vegaEmbed('#chart2', spec2);
+  
+  // Visualization 3: Regional Sales vs. Platform
+  var spec3 = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "path_to_your_data/videogames_wide.csv",  // Replace with actual path
+      "format": {
+        "type": "csv"
+      }
+    },
+    "transform": [
+      {
+        "fold": ["NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"],
+        "as": ["Region", "Sales"]
+      }
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Platform",
+        "type": "nominal",
+        "axis": {"title": "Platform"}
+      },
+      "y": {
+        "field": "Sales",
+        "type": "quantitative",
+        "axis": {"title": "Sales (in millions)"}
+      },
+      "color": {
+        "field": "Region",
+        "type": "nominal",
+        "scale": {"scheme": "category10"},
+        "legend": {"title": "Region"}
+      },
+      "column": {
+        "field": "Region",
+        "type": "nominal",
+        "spacing": 10,
+        "header": {"title": "Region", "labelAngle": 0}
+      }
+    }
+  };
+  vegaEmbed('#chart3', spec3);
+  
+  // Visualization 4: Japan Sales Trends by Platform and Genre
+  var spec4 = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "path_to_your_data/videogames_long.csv",  // Replace with actual path
+      "format": {
+        "type": "csv"
+      }
+    },
+    "transform": [
+      {
+        "filter": "datum.Region == 'JP_Sales'"
+      }
+    ],
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "temporal",
+        "axis": {"title": "Year"}
+      },
+      "y": {
+        "field": "Sales",
+        "type": "quantitative",
+        "axis": {"title": "Sales in Japan (in millions)"}
+      },
+      "color": {
+        "field": "Platform",
+        "type": "nominal",
+        "legend": {"title": "Platform"}
+      },
+      "strokeDash": {
+        "field": "Genre",
+        "type": "nominal"
+      }
+    }
+  };
+  vegaEmbed('#chart4', spec4);
+  
