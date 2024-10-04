@@ -41,22 +41,26 @@ async function renderChart2() {
 async function renderChart3() {
   const data = await d3.csv("./data/videogames_wide.csv");
 
+  
+  console.log(data);
+
   const vlSpec = vl
     .markBar()
     .data(data)
     .transform(vl.fold(["NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"], "Region", "Sales"))
     .encode(
       vl.x().fieldN("Platform"),
-      vl.y().fieldQ("Sales"),
+      vl.y().fieldQ("Sales").aggregate('sum'),  
       vl.color().fieldN("Region"),
       vl.column().fieldN("Region")
     )
-    .width(200)  // 
+    .width(200)  
     .height(400)
     .toSpec();
 
   await vegaEmbed("#chart3", vlSpec);
 }
+
 
 // Visualization 4: Japan Sales Trends by Platform and Genre
 async function renderChart4() {
