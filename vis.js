@@ -26,38 +26,41 @@ var spec1 = {
   };
   vegaEmbed('#chart1', spec1);
   
-  // Visualization 2: Sales Over Time by Platform and Genre
-  var spec2 = {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "data/videogames_long.csv" ,  
-      "format": {
-        "type": "csv"
-      }
-    },
-    "mark": "line",
-    "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "temporal",
-        "axis": {"title": "Year"}
-      },
-      "y": {
-        "field": "Global_Sales",
-        "type": "quantitative",
-        "axis": {"title": "Global Sales (in millions)"}
-      },
-      "color": {
-        "field": "Platform",
-        "type": "nominal"
-      },
-      "strokeDash": {
-        "field": "Genre",
-        "type": "nominal"
-      }
+// Visualization 2: Sales Over Time by Platform and Genre (改为 bar 图)
+var spec2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/videogames_long.csv",  // 确保路径正确
+    "format": {
+      "type": "csv"
     }
-  };
-  vegaEmbed('#chart2', spec2);
+  },
+  "mark": "bar",  // 将 line 改成 bar
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "axis": {"title": "Year"}
+    },
+    "y": {
+      "field": "Global_Sales",
+      "type": "quantitative",
+      "axis": {"title": "Global Sales (in millions)"}
+    },
+    "color": {
+      "field": "Platform",
+      "type": "nominal"
+    },
+    "column": {
+      "field": "Genre",
+      "type": "nominal",
+      "spacing": 10,  // 每个 genre 分类之间的间距
+      "header": {"title": "Genre", "labelAngle": 0}
+    }
+  }
+};
+vegaEmbed('#chart2', spec2);
+
   
   // Visualization 3: Regional Sales vs. Platform
   var spec3 = {
