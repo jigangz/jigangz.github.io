@@ -41,18 +41,18 @@ async function renderChart2() {
 async function renderChart3() {
   const data = await d3.csv("./data/videogames_wide.csv");
 
-  // Filter out records where NA_Sales is zero or empty
-  const filteredData = data.filter(d => +d.NA_Sales > 0);
-
-  console.log(filteredData);  // Log the filtered data to check if it's not empty
-
   const vlSpec = vl
     .markBar()
-    .data(filteredData)  // Use the filtered data
+    .data(data)
     .encode(
-      vl.x().fieldN("Platform"),  // X-axis: Platform
-      vl.y().fieldQ("NA_Sales"),  // Y-axis: NA_Sales
-      vl.color().fieldN("Platform")  // Color by Platform
+      vl.x().fieldN("Platform"),
+      vl.y().fieldQ("NA_Sales").title('Sales'),  // Start with NA Sales
+      vl.color().fieldN("Platform")
+    )
+    .layer(
+      vl.markBar().encode(vl.y().fieldQ("EU_Sales")),  // Add EU Sales
+      vl.markBar().encode(vl.y().fieldQ("JP_Sales")),  // Add JP Sales
+      vl.markBar().encode(vl.y().fieldQ("Other_Sales"))  // Add Other Sales
     )
     .width(400)
     .height(400)
@@ -60,11 +60,6 @@ async function renderChart3() {
 
   await vegaEmbed("#chart3", vlSpec);
 }
-
-
-
-
-
 
 
 
