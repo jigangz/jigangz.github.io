@@ -41,25 +41,48 @@ async function renderChart2() {
 async function renderChart3() {
   const data = await d3.csv("./data/videogames_wide.csv");
 
-  const vlSpec = vl
+  const chartNA = vl
     .markBar()
     .data(data)
     .encode(
       vl.x().fieldN("Platform"),
-      vl.y().fieldQ("NA_Sales").title('Sales'),  // Start with NA Sales
+      vl.y().fieldQ("NA_Sales").title("Sales"),
       vl.color().fieldN("Platform")
-    )
-    .layer(
-      vl.markBar().encode(vl.y().fieldQ("EU_Sales")),  // Add EU Sales
-      vl.markBar().encode(vl.y().fieldQ("JP_Sales")),  // Add JP Sales
-      vl.markBar().encode(vl.y().fieldQ("Other_Sales"))  // Add Other Sales
-    )
+    );
+
+  const chartEU = vl
+    .markBar()
+    .data(data)
+    .encode(
+      vl.x().fieldN("Platform"),
+      vl.y().fieldQ("EU_Sales")
+    );
+
+  const chartJP = vl
+    .markBar()
+    .data(data)
+    .encode(
+      vl.x().fieldN("Platform"),
+      vl.y().fieldQ("JP_Sales")
+    );
+
+  const chartOther = vl
+    .markBar()
+    .data(data)
+    .encode(
+      vl.x().fieldN("Platform"),
+      vl.y().fieldQ("Other_Sales")
+    );
+
+  const vlSpec = vl
+    .layer(chartNA, chartEU, chartJP, chartOther)
     .width(400)
     .height(400)
     .toSpec();
 
   await vegaEmbed("#chart3", vlSpec);
 }
+
 
 
 
