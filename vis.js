@@ -17,7 +17,7 @@ async function renderChart1() {
   await vegaEmbed("#chart1", vlSpec);
 }
 
-// Visualization 2: Sales Over Time by Platform and Genre (Line Chart)
+// Visualization 2: Sales Over Time by Platform and Genre (Combined Line Chart)
 async function renderChart2() {
   const data = await d3.csv("./data/videogames_long.csv");
 
@@ -25,17 +25,18 @@ async function renderChart2() {
     .markLine()
     .data(data)
     .encode(
-      vl.x().fieldT("year"),
-      vl.y().fieldQ("sales_amount"),
-      vl.color().fieldN("platform"),
-      vl.column().fieldN("genre").spacing(10)
+      vl.x().fieldT("year").title("Year"), // Time on the X-axis
+      vl.y().fieldQ("sales_amount").title("Sales Amount"), // Sales on the Y-axis
+      vl.color().fieldN("platform").title("Platform"), // Color differentiates platforms
+      vl.strokeDash().fieldN("genre").title("Genre") // Line styles differentiate genres
     )
-    .width("container")
+    .width(800)
     .height(400)
     .toSpec();
 
   await vegaEmbed("#chart2", vlSpec);
 }
+
 
 // Visualization 3: Regional Sales vs. Platform
 async function renderChart3() {
